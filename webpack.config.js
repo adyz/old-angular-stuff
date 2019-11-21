@@ -1,26 +1,24 @@
+const path = require('path');
 module.exports = {
-  context: __dirname + '/app',
-  entry: './index.js',
+  mode: 'development',
+  devServer: {
+    contentBase: path.join(__dirname, 'app'),
+    compress: true,
+    port: 9000
+  },
+  entry: './app/index.ts',
   output: {
-    path: __dirname + '/app',
+    path: __dirname + '/dist',
     filename: 'bundle.js'
   },
-
+  resolve: {
+    // Add `.ts` and `.tsx` as a resolvable extension.
+    extensions: [".ts", ".tsx", ".js"]
+  },
   module: {
-    loaders: [
-      { 
-        test: /\.js$/, 
-        loader: 'babel', 
-        exclude: /node_modules/,
-        query: {
-          presets: ['es2015']
-        }
-      },
-      { 
-        test: /\.html$/, 
-        loader: 'html', 
-        exclude: /node_modules/,
-      }
+    rules: [
+      { test: /\.ts$/, use: [ "ts-loader" ] },
+      { test: /\.html$/, use: [ "html-loader" ] },
     ]
   }
 };
