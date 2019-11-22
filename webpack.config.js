@@ -17,8 +17,15 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.ts$/, use: [ "ts-loader" ] },
-      { test: /\.html$/, use: [ "html-loader" ] },
+      { test: /\.ts$/, loader:  "ts-loader" },
+      {
+        test: /\.html$/,
+        use: [
+          { loader:'ngtemplate-loader?requireAngular&module=app&relativeTo=' + (path.resolve(__dirname, './app')) },
+          { loader: 'html-loader' }
+        ],
+        exclude: /index\.html/
+      },
     ]
   }
 };

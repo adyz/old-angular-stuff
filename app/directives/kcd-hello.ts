@@ -3,7 +3,7 @@ export default (ngModule: any) => {
     return {
       restrict: 'E',
       scope: {},
-      template: require('./kcd-hello.html'),
+      templateUrl: require('./kcd-hello.html'),
       controllerAs: 'vm',
       controller: function() {
         const vm = this;
