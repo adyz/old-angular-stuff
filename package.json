@@ -5,7 +5,7 @@
   "main": "app/index.js",
   "repository": "https://github.com/kentcdodds/webpack-angular.git",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "webpack-dev-server --open",
     "build": "NODE_ENV=production node node_modules/.bin/webpack && cp app/index.html dist/index.html"
   },
@@ -17,6 +17,9 @@
   "author": "Kent C. Dodds <kent@doddsfamily.us> (http://kent.doddsfamily.us)",
   "license": "MIT",
   "devDependencies": {
+    "@testing-library/dom": "^6.10.1",
+    "@types/angular": "^1.6.56",
+    "@types/jest": "^24.0.23",
     "angular-formly": "^8.4.1",
     "api-check": "^7.5.5",
     "babel": "^6.23.0",
@@ -26,6 +29,7 @@
     "css-loader": "^3.2.0",
     "file-loader": "^4.3.0",
     "html-loader": "^0.5.5",
+    "jest": "^24.9.0",
     "jshint": "^2.10.3",
     "jshint-loader": "^0.8.4",
     "ngtemplate-loader": "^2.0.1",
@@ -49,6 +53,7 @@
     "angular-messages": "^1.7.9",
     "angular-ui-router": "^1.0.23",
     "ng-annotate-loader": "^0.6.1",
-    "ng-annotate-patched": "^1.11.1"
+    "ng-annotate-patched": "^1.11.1",
+    "ts-jest": "^24.2.0"
   }
 }
