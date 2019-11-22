@@ -1,8 +1,9 @@
 const path = require('path');
+const appFolderBase = path.join(__dirname, 'app');
 module.exports = {
   mode: 'development',
   devServer: {
-    contentBase: path.join(__dirname, 'app'),
+    contentBase: appFolderBase,
     compress: true,
     port: 9000
   },
@@ -17,8 +18,23 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.ts$/, use: [ "ts-loader" ] },
-      { test: /\.html$/, use: [ "html-loader" ] },
+
+      { 
+        test: /\.ts$/, 
+        loader: "ts-loader"
+      },
+      { 
+        test: /\.ts$/, 
+        enforce: 'pre',
+        use: [{ loader:'baggage-loader?[file].html&[file].css'  }]
+      },
+      {
+        test: /\.html$/,
+        use: [
+          { loader: 'ngtemplate-loader?requireAngular' },
+          { loader: 'html-loader' }
+        ]
+      }
     ]
   }
 };
