@@ -18,16 +18,22 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.html$/,
-        use: [
-          { loader: 'ngtemplate-loader?relativeTo=' + __dirname + '/app' },
-          { loader: 'html-loader' }
-        ]
-      },
+
       { 
         test: /\.ts$/, 
         loader: "ts-loader"
+      },
+      { 
+        test: /\.ts$/, 
+        enforce: 'pre',
+        use: [{ loader:'baggage-loader?[file].html&[file].css'  }]
+      },
+      {
+        test: /\.html$/,
+        use: [
+          { loader: 'ngtemplate-loader?requireAngular' },
+          { loader: 'html-loader' }
+        ]
       }
     ]
   }
