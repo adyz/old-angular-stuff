@@ -5,7 +5,8 @@
   "main": "app/index.js",
   "repository": "https://github.com/kentcdodds/webpack-angular.git",
   "scripts": {
-    "test": "jest",
+    "test": "jest --no-cache",
+    "test:coverage": "jest --no-cache --coverage",
     "start": "webpack-dev-server --open",
     "build": "NODE_ENV=production node node_modules/.bin/webpack && cp app/index.html dist/index.html"
   },

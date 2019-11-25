@@ -9,6 +9,10 @@ export default (ngModule: any) => {
         const vm = this;
 
         vm.greeting = 'Hello Webpack';
+        vm.count = 0;
+        vm.increment = () => {
+          vm.count += 1
+        }
       }
     };
   });
